@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title> Objects </title>
+
+    <script>
+      const product = {
+        name: 'smart phone',
+        price: 22
+      };
+
+      console.log(product);
+      console.log(product.name);
+      console.log(product.price);
+
+      product.name = 'keypad phone';
+      console.log(product);
+      
+      product.newProperty = true;
+      console.log(product);
+
+      delete product.newProperty;
+      console.log(product);
+
+      const product2 = {
+        name: 'shirt',
+        'delivery-time': '1 day',
+        rating: {
+          stars: 4.5,
+          count: 87
+        },
+        fun: function function1() {
+          console.log('function inside objaect'); // function inside the object  (is treated as the another type of value). (FUNCTIN INSIDE OBJECT = METHOD)
+        }        
+      };
+      console.log(product2.name);
+      console.log(product2['name']); // using bracket notatins instead of dot notations , we can use properties that are genereally not work with the dot notation  
+      console.log(product2['delivery-time'])
+
+      console.log(product2.rating.count);
+
+      product2.fun();
+
+      console.log(typeof console);
+      console.log(typeof console.log);
+       // This proves the console is a object and the log is an method that is stored inside the console
+       // similar with 'Math.random()' here the 'Math' is an object and random is an 'Method' Stored inside the Math object
+
+       console.log(JSON.stringify(product2)); // this will convert the object into JSON
+      console.log(typeof JSON.stringify(product2)); // this proves that this function convert the argumented value into string
+
+      const jsonString = JSON.stringify(product2);
+      console.log(JSON.parse(jsonString));  // convert: JSON -> JavaScript Object
+
+      
+      // other values also have properties and methds i.e
+
+      console.log('hello'.length);
+      console.log('hello'.toUpperCase());
+
+      // Objects are references
+      
+      const object1 = {
+        message: 'hello'
+      };
+      const object2 = object1; // copy by reference ... not copying complete object  ... copies the reference 
+
+      object1.message = 'Good job';
+      console.log(object1);
+      console.log(object2); // even though we use const we can still cange the value inside the objects.
+      
+      const object3 = {
+        message: 'Good job'
+      };
+      
+      // making the similar object and trying to compare them but they can not be compared becouse , object are references.
+
+      console.log(object2 === object1);
+      // but the object 2 and same reference as the object 1 , thus they can be compared or are the same .. WHILE COMPARING THE OBJECTS ... WE ARE ACTUALLY COMPARING THE REFERENCES NOT THE ACTUAL VALUES
+
+      const object4 = {
+        message: 'Good job!',
+        price: 799
+      };
+
+      const {message,price} = object4;  // alternative for : const message = object3.message;  ALSO CALLED DESTRUCTURING - the easier way to take properties out of an object
+      console.log(message);
+      console.log(price);
+      console.log('see here');
+      console.log(object4);
+
+      // The 'Shorthand  property'
+      const object5 = {
+        //message: message
+        message,
+        // method: function function1(){
+        //   console.log('method');
+        // }
+        method() {               // called the shorthand method syntax
+          console.log('method');
+        }
+      };
+      console.log(object5);
+      object5.method();
+
+
+
+
+      
+    </script>
+  </head>
+
+  <body>
+    <h2>Objects in javascript</h2>
+    <p> the property : value pair</p>
+    <p>helo us to make out code more Organised by grouping multiple value together and use them together</p>
+    <h3> JSON -> JavaScript Object Notation</h3>
+    <p>-a syntax <br> -similar to JavaScript object <br> -but has less features</p>
+    <p>the difference could be that , it has " " on both key and value and not support the '' sigle quotes</p>
+    // why to use 
+    <p> when we send data between computers <br> when we store data </p>
+
+
+    <h3> The Next built-in Object: localStorage</h3> // help to store values more permamently
+
+    <br>
+    <h>  null vs undefinied</h>
+    we use null when we intentially want something to be empty
+
+
+  </body>
+
+</html>
